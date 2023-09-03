@@ -16,9 +16,9 @@ const config: Config = {
         },
         primary: "#2079FF",
       },
-      container: {
-        center: true,
-      },
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [],

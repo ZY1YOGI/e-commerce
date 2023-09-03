@@ -46,7 +46,7 @@ export default function Sidebar() {
     <aside className={style.aside}>
       <div className={style.container}>
         <Link href="/">
-          <img className={style.image} src="/apple-touch-icon.png" alt="MA-HOLIDAY" />
+          <img className={style.image} src="https://cdn.wallpapersafari.com/79/73/TvuM20.jpg" alt="" />
         </Link>
 
         {LINKS.map((link, id) => (
