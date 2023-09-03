@@ -1,0 +1,15 @@
+.x-input {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-500 dark:text-gray-800;
+}
+
+.x-label {
+  @apply block font-medium text-gray-900 md:text-lg dark:text-white;
+}
+
+.x-label .requeued {
+  @apply text-red-500;
+}
+
+.btn-create-update {
+  @apply px-6 py-3 text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:w-1/2 hover:bg-blue-700;
+}
