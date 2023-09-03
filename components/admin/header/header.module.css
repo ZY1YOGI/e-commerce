@@ -1,0 +1,31 @@
+.header {
+  @apply static px-5 py-1 ml-16 border-b border-gray-600 shadow-xl;
+}
+
+.container {
+  @apply flex items-center justify-between md:px-5 lg:px-8;
+}
+
+.name {
+  @apply text-lg font-semibold md:text-3xl;
+}
+
+.container_user {
+  @apply flex items-center space-x-4;
+}
+
+.user {
+  @apply flex flex-col items-end;
+}
+
+.name_user {
+  @apply text-xl font-medium;
+}
+
+.role_user {
+  @apply text-sm font-light;
+}
+
+.image {
+  @apply w-12 h-12 p-px border-2 border-white rounded-full;
+}

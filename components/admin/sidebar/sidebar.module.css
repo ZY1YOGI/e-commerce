@@ -1,0 +1,24 @@
+.aside {
+  @apply fixed top-0 z-10 h-screen border-r border-gray-600 shadow-2xl w-16;
+}
+
+.container {
+  @apply flex flex-col items-center py-8 space-y-8;
+}
+
+.image {
+  @apply w-12 h-12 rounded-full;
+}
+
+.link {
+  @apply p-1.5 text-gray-500 focus:outline-none transition-colors rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-white hover:shadow hover:shadow-white dark:hover:shadow-gray-900;
+}
+
+
+.linkActive {
+  @apply bg-white;
+}
+
+.buttonTheme {
+  @apply p-1.5 text-gray-500 focus:outline-none transition-colors rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-white hover:shadow hover:shadow-white dark:hover:shadow-gray-900;
+}
