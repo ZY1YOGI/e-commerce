@@ -23,9 +23,10 @@ export default function FormCategory() {
     console.log('====================================');
     console.log(data);
     console.log('====================================');
-    // const response = await axios.post('/api/category', {
-    //   name: data.name
-    // })
+
+    const res = await axios.post('/api/category', {
+      ...data
+    })
 
     // if (response.data.status == 422) {
     //   setError('name', { message: "Error" })
@@ -47,7 +48,7 @@ export default function FormCategory() {
         </div>
         <div className='space-y-3'>
           <label htmlFor="input-name" className="x-label">Enter The Keywords Category <span className='requeued'>*</span></label>
-          <input {...register("keywords", { required: "The Name keywords is Requeued" })} id="input-name" className="x-input" placeholder="Keywords" />
+          <input {...register("keywords", { required: "The keywords is Requeued" })} id="input-name" className="x-input" placeholder="Keywords" />
           <span className="block text-red-500">{errors.keywords && (errors.keywords.message)}</span>
         </div>
         <div className='space-y-3'>
