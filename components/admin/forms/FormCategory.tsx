@@ -47,7 +47,7 @@ export default function FormCategory() {
       <div className='space-y-3'>
         <label htmlFor="input-name" className="x-label">Enter The Keywords Category <span className='requeued'>*</span></label>
         <input {...register("keywords", { required: "The Name keywords is Requeued" })} id="input-name" className="x-input" placeholder="Keywords" />
-        <span className="block text-red-500">{errors.name && (errors.name.message)}</span>
+        <span className="block text-red-500">{errors.keywords && (errors.keywords.message)}</span>
       </div>
       <div className='space-y-3'>
         <label htmlFor="input-description" className="x-label">Enter The Description Category <span className='requeued'>*</span></label>
