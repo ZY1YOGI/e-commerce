@@ -24,20 +24,15 @@ export default function FormCategory() {
 
 
     try {
-      const res = await axios.post('/api/category', {
-        ...data
-      })
-
-
-      console.log('================= Res.data.errors ===================');
-      console.log(res.data.errors);
-      console.log('====================================');
-
+      const res = await axios.post('/api/category', { ...data })
+      console.log(res.data.message);
+      
       if (res.data.errors) {
-        setError('name', { message: res.data.errors.name })
-        setError('keywords', { message: res.data.errors.keywords })
-        setError('description', { message: res.data.errors.description })
+        setError('name', { message: res.data.errors.name?.message })
+        setError('keywords', { message: res.data.errors.keywords?.message })
+        setError('description', { message: res.data.errors.description?.message })
       }
+      
     } catch (error) {
       console.error('================= Res.error ===================');
       console.error(error);

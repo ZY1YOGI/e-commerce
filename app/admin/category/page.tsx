@@ -14,7 +14,7 @@ export default async function Category() {
 
   const getCategories = await axios.get('/api/category')
   
-  const categories = getCategories.data.categories
+  const categories = getCategories.data.categories || []
 
   return (
     <>
