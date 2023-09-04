@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: "Created successfully", status: 200 });
   } catch (err) {
-    console.log("This is not a post");
+    console.log(err);
     return NextResponse.json({
       message: "Internal Server Error This is not a post",
     });
