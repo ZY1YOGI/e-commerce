@@ -1,7 +1,7 @@
 import { CategoryModel } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/connect-db";
-import { Category } from "@/models/Category";
+import { Category } from "@/models/Category.model";
 
 type UpdateCategoryBody = Partial<Category>;
 
