@@ -4,7 +4,7 @@ const CategorySchema: Schema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "The Name Is Required."],
+      required: [true, "The Name is required."],
       minlength: [3, "The Name is less than three letters."],
       unique: true,
     },
@@ -18,6 +18,7 @@ const CategorySchema: Schema = new Schema(
   { timestamps: true }
 );
 
-const CategoryModel = models.Category || model("Category", CategorySchema);
+
+const CategoryModel = models?.Category || model("Category", CategorySchema);
 
 export default CategoryModel;

@@ -27,21 +27,22 @@ export default function FormCategory() {
       const res = await axios.post('/api/category', {
         ...data
       })
-  
-  
+
+
       console.log('================= Res.data.errors ===================');
       console.log(res.data.errors);
       console.log('====================================');
+
+      if (res.data.errors) {
+        setError('name', { message: res.data.errors.name })
+        setError('keywords', { message: res.data.errors.keywords })
+        setError('description', { message: res.data.errors.description })
+      }
     } catch (error) {
-      console.log('================= Res.error ===================');
-      console.log(error);
+      console.error('================= Res.error ===================');
+      console.error(error);
     }
 
-
-    // if (response.data.status == 422) {
-    //   setError('name', { message: "Error" })
-    //   setError('description', { message: "Error" })
-    // }
 
     setLoading(false)
   }
@@ -53,7 +54,7 @@ export default function FormCategory() {
       <div className="grid grid-cols-2 mt-8 gap-x-5 gap-y-8 max-md:grid-cols-1">
         <div className='space-y-3'>
           <label htmlFor="input-name" className="x-label">Enter The Name Category <span className='requeued'>*</span></label>
-          <input {...register("name", { required: "The Name Category is Requeued" })} id="input-name" className="x-input" placeholder="Name" />
+          <input {...register("name")} id="input-name" className="x-input" placeholder="Name" />
           <span className="block text-red-500">{errors.name && (errors.name.message)}</span>
         </div>
         <div className='space-y-3'>

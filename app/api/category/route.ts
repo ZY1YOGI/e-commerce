@@ -13,13 +13,13 @@ export async function POST(request: NextRequest) {
     console.log("================= CategoryModel.create ===================");
     console.log(category);
 
-    return NextResponse.json({ message: "Created successfully", status: 200 });
+    return NextResponse.json({ message: "Created successfully"});
   } catch (err) {
     console.log("================= CategoryModel.Error ===================");
     console.table(err)
     return NextResponse.json({
       message: "Internal Server Error",
-      errors: Object.values(err.errors).map(val => val.message)
+      errors: "", 
     });
   }
 }
