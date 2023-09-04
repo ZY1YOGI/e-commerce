@@ -1,13 +1,13 @@
 import { CategoryModel } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
-// import dbConnect from "@/lib/dbConnect";
+import connectDB from "@/lib/connect-db";
 import { Category } from "@/models/Category";
 
 type UpdateCategoryBody = Partial<Category>;
 
 export async function POST(request: NextRequest) {
   try {
-    // await dbConnect();
+    await connectDB();
 
     const { name, keywords, description } = await request.json();
     const category = await CategoryModel.create({name, keywords, description})
