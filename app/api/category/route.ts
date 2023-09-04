@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Created successfully", status: 200 });
   } catch (err) {
     console.log("================= CategoryModel.Error ===================");
-    console.table(Object.values(err.errors).map(val => val.message))
+    console.table(err)
     return NextResponse.json({
       message: "Internal Server Error",
       errors: Object.values(err.errors).map(val => val.message)
@@ -29,10 +29,19 @@ export async function GET(request: NextRequest) {
     await connectDB();
     const categories = await CategoryModel.find({})
 
-    console.log("==================================== categories");
-    console.log(categories);
-
     return NextResponse.json({ categories: categories });
+  } catch (err) {
+    return NextResponse.json({ message: "Internal Server Error" });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    await connectDB();
+  
+
+
+
   } catch (err) {
     return NextResponse.json({ message: "Internal Server Error" });
   }

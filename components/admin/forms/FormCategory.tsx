@@ -23,14 +23,19 @@ export default function FormCategory() {
 
 
 
-    const res = await axios.post('/api/category', {
-      ...data
-    })
-
-
-    console.log('================= Res.data.errors ===================');
-    console.log(res.data.errors);
-    console.log('====================================');
+    try {
+      const res = await axios.post('/api/category', {
+        ...data
+      })
+  
+  
+      console.log('================= Res.data.errors ===================');
+      console.log(res.data.errors);
+      console.log('====================================');
+    } catch (error) {
+      console.log('================= Res.error ===================');
+      console.log(error);
+    }
 
 
     // if (response.data.status == 422) {
