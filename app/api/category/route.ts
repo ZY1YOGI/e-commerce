@@ -26,21 +26,6 @@ export async function GET(request: NextRequest) {
   try {
     await connectDB();
     const categories = await CategoryModel.find({})
-    // const categories = [
-    //   {
-    //     id: 1,
-    //     name: "Web",
-    //     keywords: "text,admin,lol,nice,lol man,hi",
-    //     description: "lorem daskdp asdoij aso doashdi ashdi has",
-    //   },
-    //   {
-    //     id: 2,
-    //     name: "Admin",
-    //     keywords: "text,admin,lol,nice,lol man,hi",
-    //     description:
-    //       "Adding the Tag Input: After installing the package, we can easily add a tag input on any page in our app. For this example,",
-    //   },
-    // ];
 
     console.log("====================================");
     console.log(categories);

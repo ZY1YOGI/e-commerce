@@ -41,11 +41,12 @@ export default async function Category() {
             </tr>
           </thead>
           <tbody className='text-lg md:text-2xl text-center'>
-            {categories.map((category: { id: string, name: string, keywords: string, description: string }) => (
-              <tr className='border-b w-full' key={category.id}>
+            {categories.map((category: { _id: string, name: string, keywords: string, description: string }) => (
+              <tr className='border-b w-full' key={category._id}>
                 <td className='flex items-center space-x-1'>
                   <img className="w-10 h-10 rounded-full" src="https://cdn.wallpapersafari.com/79/73/TvuM20.jpg" alt="" />
                   <h1>{category.name}</h1>
+                  <h1>{category._id}</h1>
                 </td>
                 <td className='max-md:hidden'>{category.keywords}</td>
                 <td className='max-md:hidden max-w-sm truncate'>{category.description}</td>
