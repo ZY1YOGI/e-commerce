@@ -1,9 +1,7 @@
-import { CategoryModel } from "@/models";
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/connect-db";
-import { Category } from "@/models/Category.model";
+import  CategoryModel  from "@/models/Category.model";
 
-type UpdateCategoryBody = Partial<Category>;
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,21 +24,24 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const categories = [
-      {
-        id: 1,
-        name: "Web",
-        keywords: "text,admin,lol,nice,lol man,hi",
-        description: "lorem daskdp asdoij aso doashdi ashdi has",
-      },
-      {
-        id: 2,
-        name: "Admin",
-        keywords: "text,admin,lol,nice,lol man,hi",
-        description:
-          "Adding the Tag Input: After installing the package, we can easily add a tag input on any page in our app. For this example,",
-      },
-    ];
+    await connectDB();
+    const categories = await CategoryModel.find({})
+    // const categories = [
+    //   {
+    //     id: 1,
+    //     name: "Web",
+    //     keywords: "text,admin,lol,nice,lol man,hi",
+    //     description: "lorem daskdp asdoij aso doashdi ashdi has",
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Admin",
+    //     keywords: "text,admin,lol,nice,lol man,hi",
+    //     description:
+    //       "Adding the Tag Input: After installing the package, we can easily add a tag input on any page in our app. For this example,",
+    //   },
+    // ];
+
     console.log("====================================");
     console.log(categories);
     console.log("====================================");
