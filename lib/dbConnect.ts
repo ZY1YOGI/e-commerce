@@ -1,3 +1,5 @@
+// lib/dbConnect.tsx
+
 import _mongoose, { connect } from "mongoose";
 
 declare global {

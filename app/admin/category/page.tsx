@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default async function Category() {
 
-  const getCategories = await axios.get('/api/category')
-  const categories = getCategories.data.categories
-
+  // const getCategories = await axios.get('/api/category')
+  
+  const categories = [] as any
 
   return (
     <>

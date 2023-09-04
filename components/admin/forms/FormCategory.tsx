@@ -20,13 +20,20 @@ export default function FormCategory() {
 
 
 
-    console.log('====================================');
-    console.log(data);
-    console.log('====================================');
 
-    const res = await axios.post('/api/category', {
-      ...data
-    })
+
+    try {
+      const res = await axios.post('/api/category', {
+        ...data
+      })
+      console.log('====================================');
+      console.log("Data Res: ", data);
+      console.log('====================================');
+    } catch (error) {
+      console.log('====================================');
+      console.log("Error Res: ", error);
+      console.log('====================================');
+    }
 
     // if (response.data.status == 422) {
     //   setError('name', { message: "Error" })
