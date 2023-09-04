@@ -12,13 +12,13 @@ export async function POST(request: NextRequest) {
 
     console.log("================= CategoryModel.create ===================");
     console.log(category);
-    console.log("====================================");
 
     return NextResponse.json({ message: "Created successfully", status: 200 });
   } catch (err) {
     console.log("================= CategoryModel.Error ===================");
-    console.log(err);
-    console.log("====================================");
+    console.table(err.errors.name.message);
+    console.log(err)
+    console.error(Object.values(err.errors).map(val => val.message))
     return NextResponse.json({
       message: "Internal Server Error",
     });
@@ -32,7 +32,6 @@ export async function GET(request: NextRequest) {
 
     console.log("==================================== categories");
     console.log(categories);
-    console.log("====================================");
 
     return NextResponse.json({ categories: categories });
   } catch (err) {
