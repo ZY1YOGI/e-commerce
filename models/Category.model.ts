@@ -4,8 +4,8 @@ const CategorySchema: Schema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "The Name Is Required"],
-      minlength: [true, "fk yes run 3"],
+      required: [true, "The Name Is Required."],
+      minlength: [3, "The Name is less than three letters."],
       unique: true,
     },
     keywords: {

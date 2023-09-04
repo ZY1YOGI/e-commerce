@@ -16,11 +16,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Created successfully", status: 200 });
   } catch (err) {
     console.log("================= CategoryModel.Error ===================");
-    console.table(err.errors.name.message);
-    console.log(err)
-    console.error(Object.values(err.errors).map(val => val.message))
+    console.table(Object.values(err.errors).map(val => val.message))
     return NextResponse.json({
       message: "Internal Server Error",
+      errors: Object.values(err.errors).map(val => val.message)
     });
   }
 }

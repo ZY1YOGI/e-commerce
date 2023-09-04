@@ -28,6 +28,11 @@ export default function FormCategory() {
     })
 
 
+    console.log('================= Res.data.errors ===================');
+    console.log(res.data.errors);
+    console.log('====================================');
+
+
     // if (response.data.status == 422) {
     //   setError('name', { message: "Error" })
     //   setError('description', { message: "Error" })
