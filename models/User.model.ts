@@ -4,16 +4,16 @@ const UserSchema: Schema = new Schema(
   {
     name: {
       type: String,
-      required: [true, "The Name Is Required"],
+      required: true,
     },
     email: {
       type: String,
-      required: [true, "The E-mail Is Required"],
+      required: true,
       unique: true,
     },
     password: {
       type: String,
-      required: [true, "The Password Is Required"],
+      required: true,
     },
   },
   { timestamps: true }

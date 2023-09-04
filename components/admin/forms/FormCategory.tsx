@@ -22,18 +22,11 @@ export default function FormCategory() {
 
 
 
-    try {
-      const res = await axios.post('/api/category', {
-        ...data
-      })
-      console.log('====================================');
-      console.log("Data Res: ", data);
-      console.log('====================================');
-    } catch (error) {
-      console.log('====================================');
-      console.log("Error Res: ", error);
-      console.log('====================================');
-    }
+
+    const res = await axios.post('/api/category', {
+      ...data
+    })
+
 
     // if (response.data.status == 422) {
     //   setError('name', { message: "Error" })
@@ -55,12 +48,12 @@ export default function FormCategory() {
         </div>
         <div className='space-y-3'>
           <label htmlFor="input-name" className="x-label">Enter The Keywords Category <span className='requeued'>*</span></label>
-          <input {...register("keywords", { required: "The keywords is Requeued" })} id="input-name" className="x-input" placeholder="Keywords" />
+          <input {...register("keywords")} id="input-name" className="x-input" placeholder="Keywords" />
           <span className="block text-red-500">{errors.keywords && (errors.keywords.message)}</span>
         </div>
         <div className='space-y-3'>
           <label htmlFor="input-description" className="x-label">Enter The Description Category <span className='requeued'>*</span></label>
-          <textarea {...register("description", { required: "The Description Category is Requeued" })} id="input-description" className="x-input" placeholder="Description" />
+          <textarea {...register("description")} id="input-description" className="x-input" placeholder="Description" />
           <span className="block text-red-500">{errors.description && (errors.description.message)}</span>
         </div>
       </div>

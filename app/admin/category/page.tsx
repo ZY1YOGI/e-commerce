@@ -46,7 +46,7 @@ export default async function Category() {
                 <td className='flex items-center space-x-1'>
                   <img className="w-10 h-10 rounded-full" src="https://cdn.wallpapersafari.com/79/73/TvuM20.jpg" alt="" />
                   <h1>{category.name}</h1>
-                  <h1>{category._id}</h1>
+                  <h1>{category.createdAt}</h1>
                 </td>
                 <td className='max-md:hidden'>{category.keywords}</td>
                 <td className='max-md:hidden max-w-sm truncate'>{category.description}</td>
