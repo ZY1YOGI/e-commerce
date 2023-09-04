@@ -13,15 +13,10 @@ export async function POST(request: NextRequest) {
       description,
     });
 
-    console.log("================= POST ===================");
-    console.log(category);
-
     return NextResponse.json({
       message: `Created ${category.name} successfully`,
     });
-  } catch (err) {
-    console.log("================= POST.Error ===================");
-    console.error(err);    
+  } catch (err: any) {
     return NextResponse.json({
       message: "Internal Server Error",
       errors: err.errors,
