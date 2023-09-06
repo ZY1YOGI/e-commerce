@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({
-      message: `Created ${category.name} successfully`,
+      message: `Category Created ${category.name} successfully`,
     });
   } catch (err: any) {
     return NextResponse.json({
@@ -40,12 +40,11 @@ export async function DELETE(request: NextRequest) {
     await connectDB();
     const { _id } = await request.json();
 
-    const category = await CategoryModel.findOneAndDelete({ _id: _id });
+    const category = await CategoryModel.findOneAndDelete({ _id });
     if (!category) return NextResponse.json({ message: "Id Not Fond" });
 
     return NextResponse.json({
-      message: "Deleted successfully",
-      category: category.name,
+      message: `Category Deleted ${category.name} successfully`,
     });
   } catch (err) {
     return NextResponse.json({ message: "Internal Server Error" });
