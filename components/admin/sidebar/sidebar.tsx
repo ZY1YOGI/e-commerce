@@ -18,13 +18,13 @@ const LINKS: { href: string, icon: JSX.Element }[] = [
     href: '/admin',
     icon: <AiOutlineHome size={35} title='Home' />
   }, {
-    href: 'admin/category',
+    href: '/admin/category',
     icon: <BiCategory size={35} title='Category' />
   }, {
-    href: 'admin/brand',
+    href: '/admin/brand',
     icon: <LiaFileInvoiceSolid size={35} title='Brand' />
   }, {
-    href: 'admin/user',
+    href: '/admin/user',
     icon: <HiOutlineUsers size={35} title='User' />
   }, {
     href: '/admin',
