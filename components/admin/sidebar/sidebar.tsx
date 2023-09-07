@@ -21,14 +21,14 @@ const LINKS: { href: string, icon: JSX.Element }[] = [
     href: 'admin/category',
     icon: <BiCategory size={35} title='Category' />
   }, {
+    href: 'admin/brand',
+    icon: <LiaFileInvoiceSolid size={35} title='Brand' />
+  }, {
     href: 'admin/user',
     icon: <HiOutlineUsers size={35} title='User' />
   }, {
     href: '/admin',
     icon: <SlBasket size={35} title='Home' />
-  }, {
-    href: '/admin',
-    icon: <LiaFileInvoiceSolid size={35} title='Home' />
   }, {
     href: '/admin',
     icon: <MdOutlineNotificationsActive size={35} title='Home' />

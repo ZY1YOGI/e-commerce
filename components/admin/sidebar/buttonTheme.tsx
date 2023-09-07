@@ -1,13 +1,14 @@
 "use client";
-import { useEffect } from "react";
-import { MdDarkMode } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 import style from "./sidebar.module.css";
 
 
 const buttonTheme = () => {
+  const [theme, setTheme] = useState<string | void>("")
   useEffect(() => {
-    const theme = localStorage.getItem("theme") ?? localStorage.setItem("theme", "light");
+    setTheme(localStorage.getItem("theme") ?? localStorage.setItem("theme", "light"))
     if (theme === "light") {
       document.documentElement.className = "light";
       document.documentElement.setAttribute("data-theme", "light");
@@ -27,11 +28,15 @@ const buttonTheme = () => {
       document.documentElement.setAttribute("data-theme", "light");
       localStorage.setItem("theme", "light");
     }
+    setTheme(localStorage.getItem("theme") || theme)
   };
 
   return (
-    <button className={style.buttonTheme} onClick={changeTheme} role='switch' id='switch-theme'>
-      <MdDarkMode size={35} />
+    <button className={style.buttonTheme} onClick={changeTheme} role='switch' id='switch-theme' title={theme || "light"}>
+      {theme == "light" ?
+        <MdDarkMode size={35} />
+        : <MdLightMode size={35} />
+      }
     </button>
   )
 }
