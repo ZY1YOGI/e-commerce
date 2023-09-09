@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 class Api {
-  constructor(
-    public msg: String = "",
-    public status: Number = 200,
-    public errors: String[] = []
-  ) {}
+  public msg: String = "";
+  public status: Number = 200;
+  public errors: String[] = [];
 
-  json() {
+  error() {
     return NextResponse.json({
       message: this.msg,
       errors: this.errors,
