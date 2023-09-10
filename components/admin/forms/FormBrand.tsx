@@ -9,29 +9,34 @@ interface IFormInput {
   name: string;
   keywords: string;
   description: string;
+  image: any;
 }
 
 export default function FormBrand() {
   const { register, handleSubmit, setError, formState: { errors } } = useForm<IFormInput>();
   const [loading, setLoading] = useState<boolean>(false)
 
-  const onSubmit = async (data: IFormInput) => {
+  const onSubmit = async (dataInput: IFormInput) => {
     setLoading(true)
 
-    try {
-      const res = await axios.post('/api/brand', { ...data })
-      console.log(res.data.message);
+    console.log('====================================');
+    console.log(dataInput.image);
+    console.log('====================================');
 
-      if (res.data.errors) {
-        setError('name', { message: res.data.errors.name?.message })
-        setError('keywords', { message: res.data.errors.keywords?.message })
-        setError('description', { message: res.data.errors.description?.message })
-      }
+    // try {
+    //   const { data } = await axios.post('/api/brand', { ...dataInput })
+    //   console.log(data.message);
 
-    } catch (error) {
-      console.error('================= Res.error ===================');
-      console.error(error);
-    }
+    //   if (data.errors) {
+    //     setError('name', { message: data.errors.name?.message })
+    //     setError('keywords', { message: data.errors.keywords?.message })
+    //     setError('description', { message: data.errors.description?.message })
+    //   }
+
+    // } catch (error) {
+    //   console.error('================= Res.error ===================');
+    //   console.error(error);
+    // }
 
 
     setLoading(false)
@@ -48,14 +53,19 @@ export default function FormBrand() {
           <span className="block text-red-500">{errors.name && (errors.name.message)}</span>
         </div>
         <div className='space-y-3'>
-          <label htmlFor="input-name" className="x-label">Enter The Keywords Brand <span className='requeued'>*</span></label>
-          <input {...register("keywords")} id="input-name" className="x-input" placeholder="Keywords" />
+          <label htmlFor="input-keywords" className="x-label">Enter The Keywords Brand <span className='requeued'>*</span></label>
+          <input {...register("keywords")} id="input-keywords" className="x-input" placeholder="Keywords" />
           <span className="block text-red-500">{errors.keywords && (errors.keywords.message)}</span>
         </div>
         <div className='space-y-3'>
           <label htmlFor="input-description" className="x-label">Enter The Description Brand <span className='requeued'>*</span></label>
           <textarea {...register("description")} id="input-description" className="x-input" placeholder="Description" />
           <span className="block text-red-500">{errors.description && (errors.description.message)}</span>
+        </div>
+        <div className='b-t flex bg-white rounded-lg'>
+          <label htmlFor="input-image" className='b-t w-full h-full'>
+            <input {...register("image")} type="file" id="input-image" onChange={(e) => { console.log(e) }} />
+          </label>
         </div>
       </div>
       <div className='flex items-center justify-center'>

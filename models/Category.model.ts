@@ -18,13 +18,15 @@ const CategorySchema: Schema = new Schema(
   { timestamps: true }
 );
 
-// CategorySchema.path("name").validate((name: string, next: any) => {
-//   CategoryModel.findOne({ name }, (err: any, category: any) => {
-//     if (err) return next(false);
-//     if (category) return next(false);
-//     return next(true);
-//   });
-// }, "The Name is already exists");
+CategorySchema.path("name").validate(async (name: string, next: any) => {
+  try {
+    const category = await CategoryModel.findOne({ name });
+    if (category) return false;
+    return true;
+  } catch (err: any) {
+    throw new Error(err);
+  }
+}, "The Name is already exists");
 
 const CategoryModel = models?.Category || model("Category", CategorySchema);
 
