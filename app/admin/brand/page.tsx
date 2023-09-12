@@ -12,18 +12,10 @@ export const metadata: Metadata = {
 
 export default async function BrandPage() {
 
-  // const getBrands = await axios.get('/api/brand')
+  const { data } = await axios.get('/api/brand')
 
 
-  // const brands = getBrands.data.brands || []
-  const brands = [
-    {
-      _id: "1D5ddw5W9M1bd165AW",
-      name: "Trips Brand",
-      keywords: "A,B,C,D,E,F",
-      description: "Test The Brand  Description Description Brand The Test"
-    }
-  ] as any
+  const brands = data.brands || []
 
   return (
     <main>

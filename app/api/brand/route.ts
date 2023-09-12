@@ -17,9 +17,6 @@ export async function POST(request: NextRequest) {
       message: `Brand Created ${brand.name} successfully`,
     });
   } catch (err: any) {
-    // console.log('=================POST===================');
-    // console.log(err);
-    // console.log('====================================');
     return NextResponse.json({
       message: "Internal Server Error",
       errors: err.errors,
