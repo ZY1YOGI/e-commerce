@@ -12,18 +12,10 @@ export const metadata: Metadata = {
 
 export default async function CategoryPage() {
 
-  // const getCategories = await axios.get('/api/category')
+  const { data } = await axios.get('/api/category')
 
 
-  // const categories = getCategories.data.categories || []
-  const categories = [
-    {
-      _id: "1D5ddw5W9M1bd165AW",
-      name: "Trips Category",
-      keywords: "A,B,C,D,E,F",
-      description: "Test The Category  Description Description Category The Test"
-    }
-  ] as any
+  const categories = data.categories || []
 
   return (
     <main>

@@ -19,10 +19,6 @@ export default function FormBrand() {
   const onSubmit = async (dataInput: IFormInput) => {
     setLoading(true)
 
-    console.log('====================================');
-    console.log(dataInput.image);
-    console.log('====================================');
-
     try {
       const { data } = await axios.post('/api/brand', { ...dataInput })
       console.log(data.message);
@@ -34,7 +30,6 @@ export default function FormBrand() {
       }
 
     } catch (error) {
-      console.error('================= Res.error ===================');
       console.error(error);
     }
 
