@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({
-      message: `Brand Created ${brand.name} successfully`,
+      message: `Created ${brand.name} successfully`,
     });
   } catch (err: any) {
     return NextResponse.json({
@@ -44,7 +44,7 @@ export async function DELETE(request: NextRequest) {
     if (!brand) return NextResponse.json({ message: "Id Not Fond" });
 
     return NextResponse.json({
-      message: `Brand Deleted ${brand.name} successfully`,
+      message: `Deleted ${brand.name} successfully`,
     });
   } catch (err) {
     return NextResponse.json({ message: "Internal Server Error" });

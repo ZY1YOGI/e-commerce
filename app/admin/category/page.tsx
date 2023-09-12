@@ -14,7 +14,6 @@ export default async function CategoryPage() {
 
   const { data } = await axios.get('/api/category')
 
-
   const categories = data.categories || []
 
   return (
@@ -50,7 +49,7 @@ export default async function CategoryPage() {
                 </td>
                 <td className='max-md:hidden'>{category.keywords}</td>
                 <td className='max-md:hidden max-w-sm truncate'>{category.description}</td>
-                <TableActions id={category._id} />
+                <TableActions id={category._id} name={category.name}/>
               </tr>
             ))}
           </tbody>

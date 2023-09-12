@@ -2,22 +2,45 @@
 
 import { BsTrash } from "react-icons/bs";
 import { MdOutlineEdit, MdOutlineRemoveRedEye } from "react-icons/md";
-
+import Swal from 'sweetalert2'
+import axios from "axios";
 
 interface Props {
-  id: string
+  id: string;
+  name: string;
 }
 
-export default function TableActions({ id }: Props) {
+export default function TableActions({ id, name }: Props) {
 
 
   const onEdit = () => {
-    alert(`shore Edit Category: ${id}`)
+    Swal.fire(`shore Edit: ${name}`)
 
   }
 
   const onDelete = () => {
-    alert(`shore Deleted Category: ${id}`)
+    Swal.fire({
+      title: 'Are you sure to delete?',
+      text: `Deleted: ${name}`,
+      // icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { data } = await axios.delete('/api/category', { data: { _id: "64f5e2ae142b001b3cf6cbd4" } })
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
+        
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 
 
