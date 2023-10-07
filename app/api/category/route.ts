@@ -7,11 +7,7 @@ export async function POST(request: NextRequest) {
     await connectDB();
     const { name, keywords, description } = await request.json();
 
-    const category = await CategoryModel.create({
-      name,
-      keywords,
-      description,
-    });
+    const category = await CategoryModel.create({ name, keywords, description });
 
     return NextResponse.json({
       message: `Created ${category.name} successfully`,
@@ -39,9 +35,6 @@ export async function DELETE(request: NextRequest) {
   try {
     await connectDB();
     const { _id } = await request.json();
-    console.log('====================================');
-    console.log(_id);
-    console.log('====================================');
 
     const category = await CategoryModel.findOneAndDelete({ _id });
     if (!category) throw Error("id not Fond");

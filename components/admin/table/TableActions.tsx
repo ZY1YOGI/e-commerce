@@ -22,18 +22,14 @@ export default function TableActions({ id, name }: Props) {
     Swal.fire({
       title: 'Are you sure to delete?',
       text: `Deleted: ${name}`,
-      // icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#3085d6',
       confirmButtonText: 'Yes, delete it!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const { data } = await axios.delete('/api/category', { data: { _id: "64f5e2ae142b001b3cf6cbd4" } })
-        console.log('====================================');
-        console.log(data);
-        console.log('====================================');
-        
+        const { data } = await axios.delete('/api/category', { data: { _id: id } })
+
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
